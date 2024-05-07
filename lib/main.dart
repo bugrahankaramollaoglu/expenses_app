@@ -18,7 +18,7 @@ void main() {
           color: kDarkColor.onPrimary,
           elevation: 5,
         ),
-        appBarTheme: AppBarTheme().copyWith(
+        appBarTheme: const AppBarTheme().copyWith(
           // backgroundColor: kColor.onPrimary,
           backgroundColor: kDarkColor.onPrimaryContainer,
           foregroundColor: kDarkColor.primaryContainer,
