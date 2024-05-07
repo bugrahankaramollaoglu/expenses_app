@@ -3,6 +3,7 @@ import 'package:expenses_tracker/expense.dart';
 import 'package:expenses_tracker/expenses_list.dart';
 import 'package:expenses_tracker/new_expense.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -31,7 +32,8 @@ class _ExpensesState extends State<Expenses> {
 
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
-      // isScrollControlled: true,
+      isScrollControlled: true,
+      useSafeArea: true, // bu sayede kamera, wifi simgeleri vs. taşmaz viewün
       context: context,
       builder: (ctx) => NewExpense(onAddExpense: _addExpense),
     );
@@ -67,6 +69,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     Widget mainContent = Center(child: Text('No expenses added yet'));
 
     if (_registeredExpenses.isNotEmpty) {
@@ -86,14 +90,23 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Chart(expenses: _registeredExpenses ),
-          Expanded(
-            child: mainContent,
-          ),
-        ],
-      ),
+      body: width < 600
+          ? Column(
+              children: [
+                Chart(expenses: _registeredExpenses),
+                Expanded(
+                  child: mainContent,
+                ),
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(child: Chart(expenses: _registeredExpenses)),
+                Expanded(
+                  child: mainContent,
+                ),
+              ],
+            ),
     );
   }
 }

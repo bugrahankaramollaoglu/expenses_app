@@ -10,60 +10,62 @@ var kDarkColor = ColorScheme.fromSeed(
 );
 
 void main() {
-  runApp(MaterialApp(
-    darkTheme: ThemeData.dark().copyWith(
-      colorScheme: kDarkColor,
-      cardTheme: const CardTheme().copyWith(
-        color: kDarkColor.onPrimary,
-        elevation: 5,
-      ),
-      appBarTheme: AppBarTheme().copyWith(
-        // backgroundColor: kColor.onPrimary,
-        backgroundColor: kDarkColor.onPrimaryContainer,
-        foregroundColor: kDarkColor.primaryContainer,
-        elevation: 5,
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: kDarkColor.primaryContainer,
+  runApp(
+    MaterialApp(
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: kDarkColor,
+        cardTheme: const CardTheme().copyWith(
+          color: kDarkColor.onPrimary,
+          elevation: 5,
         ),
-      ),
-    ),
-    theme: ThemeData().copyWith(
-      colorScheme: kColor,
-
-      // copyWith() kullanırsan sadece o özellikler override edilir
-      appBarTheme: AppBarTheme().copyWith(
-        // backgroundColor: kColor.onPrimary,
-        backgroundColor: kColor.onPrimaryContainer,
-        foregroundColor: kColor.primaryContainer,
-        elevation: 5,
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: kColor.primaryContainer,
+        appBarTheme: AppBarTheme().copyWith(
+          // backgroundColor: kColor.onPrimary,
+          backgroundColor: kDarkColor.onPrimaryContainer,
+          foregroundColor: kDarkColor.primaryContainer,
+          elevation: 5,
         ),
-      ),
-      cardTheme: const CardTheme().copyWith(
-        color: kColor.onPrimary,
-        elevation: 5,
-      ),
-
-      textTheme: ThemeData().textTheme.copyWith(
-            titleLarge: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: kColor.onSecondaryContainer,
-              fontSize: 20,
-            ),
-            titleMedium: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: kColor.onSecondaryContainer,
-              fontSize: 16,
-            ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kDarkColor.primaryContainer,
           ),
+        ),
+      ),
+      theme: ThemeData().copyWith(
+        colorScheme: kColor,
+
+        // copyWith() kullanırsan sadece o özellikler override edilir
+        appBarTheme: AppBarTheme().copyWith(
+          // backgroundColor: kColor.onPrimary,
+          backgroundColor: kColor.onPrimaryContainer,
+          foregroundColor: kColor.primaryContainer,
+          elevation: 5,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kColor.primaryContainer,
+          ),
+        ),
+        cardTheme: const CardTheme().copyWith(
+          color: kColor.onPrimary,
+          elevation: 5,
+        ),
+
+        textTheme: ThemeData().textTheme.copyWith(
+              titleLarge: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: kColor.onSecondaryContainer,
+                fontSize: 20,
+              ),
+              titleMedium: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: kColor.onSecondaryContainer,
+                fontSize: 16,
+              ),
+            ),
+      ),
+      themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
+      home: Expenses(),
     ),
-    themeMode: ThemeMode.system,
-    debugShowCheckedModeBanner: false,
-    home: Expenses(),
-  ));
+  );
 }
