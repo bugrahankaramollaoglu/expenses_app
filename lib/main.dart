@@ -32,7 +32,6 @@ void main() {
       ),
       theme: ThemeData().copyWith(
         colorScheme: kColor,
-
         // copyWith() kullanırsan sadece o özellikler override edilir
         appBarTheme: AppBarTheme().copyWith(
           // backgroundColor: kColor.onPrimary,
@@ -49,7 +48,6 @@ void main() {
           color: kColor.onPrimary,
           elevation: 5,
         ),
-
         textTheme: ThemeData().textTheme.copyWith(
               titleLarge: TextStyle(
                 fontWeight: FontWeight.bold,
