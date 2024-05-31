@@ -7,5 +7,5 @@
 Some more text.
 
 <div align="center">
-  <img src="./screenshot2.png" alt="asd" width="600"/>
+  <img src="./screenshot2.png" alt="" width="600"/>
 </div>
